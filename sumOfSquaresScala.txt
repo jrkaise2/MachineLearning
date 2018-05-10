@@ -1,0 +1,9 @@
+first scala mapreduce program:
+
+val list = 1 to 500000 toList
+val distrData= sc.parallelize(list) 
+val mapper = distrData.map(m => (m*m)/100) //just declare a Mapper(), not using.
+mapper.collect()
+distrData.map(m => (m*m)/100).reduce((x,y) => x+y)  //num^2 for all nums, then sum them up.
+//
+:reset
